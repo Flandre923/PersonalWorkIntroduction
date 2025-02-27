@@ -1,0 +1,162 @@
+---
+interface Props {
+    imageSrc: string;
+    title: string;
+    description: string;
+    tags: string[];
+    links: {
+        text: string;
+        icon?: string;
+        link: string;
+    }[] /* New prop for links */;
+}
+
+const { imageSrc, title, description, tags, links } = Astro.props;
+---
+
+<div class="card">
+    <div class="image-container">
+        <img src={imageSrc} alt={title} class="mod-image" />
+    </div>
+    <div class="content">
+        <div class="header">
+            <h2 class="mod-title">{title}</h2>
+        </div>
+        <p class="mod-description">
+            {description}
+        </p>
+
+        <div class="tags">
+            {
+                tags.map((tag) => (
+                    <a href={`/search?tag=${tag}`} class="tag-link">
+                        {tag}
+                    </a>
+                ))
+            }
+        </div>
+
+        <div class="link-buttons">
+            {/* New container for link buttons */}
+            {
+                links.map((link) => (
+                    <a href={link.link} class="link-button">
+                        {link.icon && (
+                            <span class="link-icon">{link.icon}</span>
+                        )}{" "}
+                        {/* Icon span */}
+                        {link.text}
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        display: flex;
+        padding: 16px;
+        margin: 16px;
+        border-radius: 24px;
+        background-color: #fff; /* Assuming white background from image */
+        box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.12),
+            0 1px 2px rgba(0, 0, 0, 0.24); /* Basic shadow */
+        font-family: sans-serif; /* Default font, adjust as needed */
+        align-items: flex-start; /* Align items to the start, important for vertical alignment */
+    }
+
+    .image-container {
+        margin-right: 16px;
+        width: 80px; /* Adjust as needed */
+        height: 80px; /* Adjust as needed */
+        border-radius: 24px;
+        overflow: hidden; /* To ensure image respects border-radius */
+    }
+
+    .mod-image {
+        display: block; /* Prevent extra space below image */
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure image covers the container */
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Distribute space between header and stats */
+    }
+
+    .header {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 8px;
+    }
+
+    .mod-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0;
+        margin-right: 8px;
+    }
+
+    .mod-description {
+        font-size: 1rem;
+        color: #333; /* Darker description text */
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .tags {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+        flex-wrap: wrap; /* Allow tags to wrap */
+    }
+
+    .tag-link {
+        /* Renamed from .tag to .tag-link */
+        font-size: 0.85rem;
+        color: #777;
+        background-color: #eee;
+        padding: 4px 8px;
+        border-radius: 4px;
+        text-decoration: none; /* Important: Remove default link underline */
+        transition: background-color 0.2s ease; /* Hover effect */
+    }
+
+    .tag-link:hover {
+        /* Hover style for tag links */
+        background-color: #ddd; /* Slightly darker on hover */
+        color: #555; /* Darker text on hover */
+    }
+
+    .link-buttons {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px; /* Increased margin for better spacing */
+        flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    }
+
+    .link-button {
+        display: inline-flex; /* Use inline-flex for icon alignment */
+        align-items: center; /* Vertically align icon and text */
+        gap: 4px; /* Spacing between icon and text */
+        font-size: 0.85rem;
+        color: #444; /* Darker text for buttons */
+        background-color: #f0f0f0; /* Light grey background for buttons */
+        padding: 6px 10px; /* Slightly larger padding */
+        border-radius: 6px; /* More rounded buttons */
+        text-decoration: none; /* Remove underline from links */
+        transition: background-color 0.2s ease; /* Smooth hover effect */
+    }
+
+    .link-button:hover {
+        background-color: #e0e0e0; /* Slightly darker grey on hover */
+    }
+
+    .link-icon {
+        /* Style for icons within link buttons if needed */
+    }
+</style>
