@@ -1,5 +1,8 @@
 ---
 // 组件：ProfileCard.astro
+import profileData from "../data/skillTableData.json"; // Import the whole JSON object
+const skillTableData = profileData.skillTableData; // Extract skill table data
+const socialAccountsData = profileData.socialAccounts; // Extract social accounts data
 ---
 
 <div class="profile-container">
@@ -12,6 +15,13 @@
             <div class="name">Flandre923</div>
         </div>
 
+        <div class="description-container">
+            <p class="description-text">
+                热衷于知识汲取与技术分享，拥有广泛的学习兴趣。<br />
+                目前正在积极寻求发展机会。
+            </p>
+        </div>
+
         <div class="language-stats">
             <div class="language-chart">
                 <img
@@ -21,24 +31,38 @@
                 />
             </div>
         </div>
-    
-        <div class="social-accounts-container">
-            <div class="social-accounts-title">
-                <span><i class="iconfont icon-link"></i></span> My social accounts
-            </div>
-            <div class="social-accounts">
-                <a href="#" class="social-link bilibili">Bilibili Flandre923</a>
-            </div>
-        </div>
     </div>
 
     <div class="right-card card">
-        <div class="stats-image">
-            <img
-                src="https://github-readme-stats.vercel.app/api?username=Flandre923&show_icons=true&include_all_commits=true&line_height=21&locale=cn"
-                alt="Flandre923 的 GitHub 统计数据"
-                class="github-stats-img"
-            />
+        <div class="stats-and-social">
+            <div class="stats-image">
+                <img
+                    src="https://github-readme-stats.vercel.app/api?username=Flandre923&show_icons=true&include_all_commits=true&line_height=21&locale=cn"
+                    alt="Flandre923 的 GitHub 统计数据"
+                    class="github-stats-img"
+                />
+            </div>
+
+            <div class="social-accounts-container">
+                <div class="social-accounts-title">在哪里可以找到我</div>
+                <div class="social-accounts">
+                    {
+                        socialAccountsData.accounts.map(
+                            (
+                                account, // Loop through accounts array
+                            ) => (
+                                <a
+                                    href={account.href}
+                                    class={`social-link ${account.class}`}
+                                >
+                                    <Fragment set:html={account.badge} />{" "}
+                                    {/* Render badge HTML */}
+                                </a>
+                            ),
+                        )
+                    }
+                </div>
+            </div>
         </div>
 
         <table>
@@ -51,130 +75,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>编程语言<br />Programming Languages</td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-Java-darkred?style=flat-square&logo=openjdk"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Python-blue?style=flat-square&logo=Python"
-                        />
-                    </td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-GDScript-lightblue?style=flat-square&logo=godotengine"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-C++-blueviolet?style=flat-square&logo=cplusplus"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-C%23-darkviolet?style=flat-square&logo=dotnet"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-HTML5-orange?style=flat-square&logo=html5"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-CSS3-blue?style=flat-square&logo=css3"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Javascript-yellow?style=flat-square&logo=javascript"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Typescript-blue?style=flat-square&logo=typescript"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-VuePress-4FC08D?style=flat-square&logo=vue"
-                        />
-                    </td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-Rust-orange?style=flat-square&logo=rust"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Go-00ADD8?style=flat-square&logo=go"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Kotlin-purple?style=flat-square&logo=kotlin"
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <td>技术框架/引擎<br />Frameworks/Engines</td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-forge-fedcba?style=flat-square&logo=curseforge"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/neoforge-BDC7C7.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAABRCAYAAACJ1BvjAAAAAXNSR0IArs4c6QAABtxJREFUeF7tnGtsFFUUx/8zu+0u2zZ9w1os2lIsyMOEZykQVIgoAeELX5CkghISHwQFLGmoRNsgVVASxQhVtAkhCgkpQlCR8pDSRSlNKyDUloJUaumLLrTbbrs7Y6ZYOjPnbnORpV+48/HOuefO/HLu/5x75+5KdbfcKgbg6uzsRIfHMwAj/f8hJAGjD56AoQskqaS8vG+aSIDdZueOs9qqSlScPM5lnzR6LFInTCa22vQxX9XlZ3H1j/Ncfp9Mm4aE5BQu20BG3V1d8LR1QCpyuQya4XA4uB1XlZeh+Pt9XPZj02dg4uw5xNbD0JGKE0dx6cxpLr+Tn5+HpDHjuGwDGXk7OtF2q03A0AAJGLowETB4YNjtbAF1NzUCqrEk+buqEucYAurt7ibTM5BmsAS0/HgRLv7mIj5sISGkbWTaNDhNAipJEiLj4rl1pMurCaiHakYgD3s/3gRFUQy3I8MccMZGky6V165zw2CNV3rkJ5wrOUlupQ4bStrqm2/C3W4s5mRZxqK313HD6DUk2UTA4GAoIkMHScB42GDoy3FNIPdt28qcNPGOUNL++PAUTEifTto35+WRtsdCgRQbx3wEUO0F/uqitmsyM0nj2ZJiXL1cTdobPQwHAOYuWwFJlpkPIrkqKu7mS0XxoyB3A9PwicQEaClLfyWnjkTaM7OI/YasLNKWqHiQ5G/jonHFEo5amS4L3tu4kfQ/fawINZWXDO2qquLP2jrmWFqW0bIN6xIwdFQEDAFDTJOeGOhXM34pLb0roKrfj5IP2GWsO8oJGPUTw5NHYdpUKqD7P1tP9CnO2g2n1csloPU+G5p8dB2y4I1c0v+UqwiXay4a21UgsrWeOdaktTmQZAtbQA2bO4of/+StZhqeDBkM887xiGGjMH08hXF577vER/ggFZEO49omEBm3R0Zbh4k8gOGL3iddisuKUHXNCEPrOaO7gen+kcwtgIBxh42AoYsRAUPAeICakRDrNyeTgJnBGUt3umxhVtgjrFzZpPO2D952H7Gtb6YZhuVQE/q6ZnbGCMo0ETB02AUMAYNddD2UkdG57S2myDljfDBtZwQUw0E2WmkGQ0A7vOwFlvlBtC8a9S1ssba//gl/BSp/uYr5kkNiu7mzCctBMGBwpSKgZ9lwI0DmUV7dKmD0ghQwdCElYHDDOFXctzJX/JB3srOJM14lmnGnI+NImOIn0zsomsFcekvM56pvpFsA2kMpyxhLeC0zSDKkY0snGt6GVUprTpKyT0CyGBXa67mN9ptN5MVb85dww3DX05M7gYQyavkucissOg42R4ShXfX7cCVnJtMNq6RXU9OgznxJwOiJbQGjL3AEDN0kEjBYMI5+m98noKoC+/HtTOEZ/+FRIqAlrl9RsGs3sc+MLyVtskWCbKUK7/PybRJrDvMaJxK/GUsWI33qFCKgZe88y3wPdc7Knsyhv9TwKCD2UdPJHS21BijHp249QmAUHvgB2TmbyKD759KNGd5Suj+7BYfoeiMnex0Wzn+BwHCtms10ZV+54/7LcQFDx1bAeNhgHP75x7sCKikKQvdkM+fapM2HIcnGOVt4kK0ZB+bREl3bY1BVdolsHlCSVObeyfyDtH+PZswzaYbiw5k1zzHfQ87YDJjOZ0iWEMBmh7TrxSl9MCRg/Ah2eRz1SgERnsJDh7F+4xYyaHEGPYPZ3iHjtoe9Y212EOHwI2wQzTLTCxrJWLlZq7FwrunFFT9av8pgwiirspuPs0Ie8RSsM+YLGBoxAUMXNwKGgAH0qxnf5X+h29xREFr0NVN4Rk9IhFnib7a6UXudnqobHU8/AyqKBD9n5W2RNcGnGelCI/1smTg0AdFRkcZnVlVcOFvLfI+uWUtJNoHdASkiGtKewgMGGF3f0OOFmlcty/B+KghG6X0/PrQ0rkUA6wp9OYvC+M9QwNAREzAEjABHH3k1Y1yyl1szHAnJZLo2t7SgoYFWkKx5PXhwPGJjYsgtT10Nl5RomvF7DfugelA0414+PKd/Sn/r+vn2fORu+ojrZdavW4vXViwntiVvPs3Vv7/DKgKGDqGAIWCwV8giMkRk3G9k9KPVPWW66XetgcwX7S4itzrb3PC4W7iygSMyBvZw03oDwN7F9Jw606Eso2c63ONlrEAFDN1CTcAQMHpjQEyTgAu1fqaJ//xp8i8JgcxThsSRW75uL3xevoMpVpsd1hC6tqi+QQ/GMJ9BkmAZk8Ytn+1tHrQ0tZg2d7i792/yZP+fCoYrkOX0Z97BcNvU0MzrlRdFTA0mAKGLqQEDAGDrRENGTHKCIWoD6cPn80H73x3uOmMgH26gxxIwdMQFDAGDPQF7I+NfnW+6JpBJ1yQAAAAASUVORK5CYII="
-                        />
-                    </td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-Godot-lightblue?style=flat-square&logo=godotengine"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-cocos-lightblue?style=flat-square&logo=cocos"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Spring-darkseagreen?style=flat-square&logo=Spring"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Spring%20Boot-green?style=flat-square&logo=Spring%20Boot"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-MySQL-cornflowerblue?style=flat-square&logo=MySQL"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/OpenGL-16a085.svg?logo=qt"
-                        />
-                    </td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-Redis-darkred?style=flat-square&logo=Redis"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Unity-slategray?style=flat-square&logo=Unity"
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <td>工具/运维<br /> Tools/Operations</td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-Git-red?style=flat-square&logo=git"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-IntelliJ%20IDEA-blueviolet?style=flat-square&logo=intellij-idea"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Markdown-black?style=flat-square&logo=markdown"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-VS%20Code-lightblue?style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAABHdJREFUWEftl1tMFFccxn8zwy5rF1jCRahYZQt4YVFDaKNNSqFWGkp6sa0t2AtG44tPJhKpD7am1hcTX2zapDRp0pfSizQNSoHUGkNSm4aG1hKKchFEQRZYRWbZXZbdnWlmBWQvJIPBxgfO0272zDm/+c73/85/BVVVVR6BISyDhJ3CsiLhtnwoirimA9T8eYuvu1y8+pSV3WtjsJpFHosRFiyLJQeZmPLxycXr1LQOMun0sq7oWVJMIoWpEi8+LrE1WcIcBWhJQRxuHwfqr1J/ZQyfPwBTftY9XzinQoJBwGYRqdpoZFOiFKLOkoEMyV6qGrs50zGCoiWTosyAPBdxHKtWCFwsMS89SOeoi+qmbpq6HfcgtDEDklNcFAGiotKzM14/iHM6gMOjYLUYFjRZ25DM/h//5fKwM3TOHEhxdJDXdYIMyD4Otthp6HdSXZBCVUEySbESwozxtYvhryGZfXUdtNvDIIAYIDveSCD36UgQVaXnDZ0gZT/doHnAibahQRIoy4zj2LaV5K80EVBUznWOUt3YRY/DHbGRySBRsSWdoy9kUdqiEFxk3tC+9b6pE6T4h+u0DLrmHhcFyIiL4WRhOj7ZyQeNXdhd0xAWDUZR5NQr66ksyMBiMpBTF6mW5pHeXQn6PGJ3+dnbPMT5gUkC815IUBWkiXH88gRodJKIdl7ax9y0OD7baaMoK2luk6ggqkrvWzpBtJX67k7z0e/7HZOENItaFK7JkEeB8WPZJAoz8/gyPYs8tLj53ykrZF9xglhjYamyLW3FwGiLXTXG+D4pVFOt80rzdn39U2T4JngRImVyq1PYDFpFg0d2d9HP5pr5YsF8fg43tTF6bY7KPEWEMSQnRKMEicK06jclIglNjQtg4p8twBIxSJA+m67+fDnq3zbNojqV8AcD4nJETCSKFC+0cKRZ1aSl2oK8W+WBhKlavp26wSxy1721v7N+a6xYLkGkzKgIJrMSKnp+NTQctHMujHZxOelGRStuR/fWbVy1EDre8eir2qKP71EyzXHvPIVyIg3cvI1G/5YM9UXhtEqK3wYRTi1YxV7NieRECuR9c0CIO/qBCn74g+aO0eC1WKQRMpsaRx7aQP5qy1BhRp6ZQ7/OkzP7anIQIsRqchN5GhhGiVN3qhV0/+eTpCBO24O1rXT0GGnekcOh7Znk2w2IsxkfDDi7R72nb1B+4gnAiYY8XExeFPXRI34/kqdINrTk14/Y04v1pTQK3v+ym3Dbvafvck/I55QT2q+mvJjta2P6pFFgSx45Yb90Dk2xeFfhmjulee1AfdAMm0boiyj0r9nEYroBdHmDck+DjUPUtc5PtMYAR4/mXmRimTEify2S+eltxiI2bkOt58D525Sf+UuPt+9Di0z774iFqNAXopIdYGJzSmhKbxkreIsjOxV+PjCLb5sHWXS6WOtbQOpK0SKVkuUZhrZli4RZ4js5pccRANyTSvUtI7x1WU3L29J4/3cWJ60/M9/Jx7kSLVnHooiDwKzDBKu2iOjyH9bAkC5rK2nKwAAAABJRU5ErkJggg=="
-                        />
-                    </td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-Maven-blue?style=flat-square&logo=apache-maven"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-Docker-blue?style=flat-square&logo=docker"
-                        />
-                    </td>
-                    <td>
-                        <img
-                            src="https://img.shields.io/badge/-Gradle-green?style=flat-square&logo=gradle"
-                        />
-                        <img
-                            src="https://img.shields.io/badge/-LaTeX-lightgray?style=flat-square&logo=latex"
-                        />
-                    </td>
-                </tr>
+                {
+                    skillTableData.map((row) => (
+                        <tr>
+                            <td set:html={row.category} />
+                            <td>
+                                {row.familiar.map((badge) => (
+                                    <Fragment set:html={badge} />
+                                ))}
+                            </td>
+                            <td>
+                                {row.understandALittle.map((badge) => (
+                                    <Fragment set:html={badge} />
+                                ))}
+                            </td>
+                            <td>
+                                {row.justLearned.map((badge) => (
+                                    <Fragment set:html={badge} />
+                                ))}
+                            </td>
+                        </tr>
+                    ))
+                }
             </tbody>
         </table>
-
-      
     </div>
 </div>
 
@@ -182,9 +106,14 @@
     .profile-container {
         display: flex;
         gap: 20px;
-        max-width: 1200px; /* 调整最大宽度 */
+        max-width: 1400px; /* 调整最大宽度 */
         margin: 20px auto; /*  居中显示，并添加外边距 */
         padding: 20px; /* 容器内边距 */
+        position: absolute; /* 改为 absolute 定位 */
+        z-index: 2; /* 设置 z-index 值，使其高于 Header */
+        top: 250px; /* 调整 top 值，使其叠放在 Header 上方，初始值可以尝试 200px，根据实际情况调整 */
+        left: 50%; /* 水平居中 */
+        transform: translateX(-50%); /* 配合 left: 50% 实现绝对水平居中 */
     }
 
     .card {
@@ -232,7 +161,7 @@
     }
     /* 姓名部分 */
     .name-container {
-        margin-bottom: 20px; /*  与语言统计的间距 */
+        margin-bottom: 5px; /*  与语言统计的间距 */
     }
 
     .name {
@@ -240,9 +169,8 @@
         font-weight: bold; /*  姓名文字加粗 */
         text-align: center; /*  姓名文字居中 */
         padding: 10px 20px;
-        border: 2px solid #fff;
         border-radius: 10px;
-        background-color: rgba(255, 255, 255, 0.5); /* 姓名背景色 */
+        /* background-color: rgba(255, 255, 255, 0.5); /* 姓名背景色 */
     }
 
     .language-chart {
@@ -263,17 +191,51 @@
         display: block; /*  去除图片底部默认间距 */
     }
 
+    .right-card .stats-and-social {
+        display: flex; /* Make wrapper div a flex container */
+        flex-direction: row; /* Arrange items in a row (side-by-side) */
+        gap: 10px; /* Add some space between stats and social sections */
+    }
+
+    .right-card .stats-image {
+        flex: 1; /* Allow stats image to take available space */
+    }
+
+    .right-card .social-accounts-container {
+        flex: 1; /* Allow social accounts to take available space */
+        min-width: 0; /* Prevent social accounts from collapsing too much */
+
+        border: 1px solid rgb(223, 220, 220); /*  添加黑色边框 */
+        border-radius: 5px; /*  添加圆角，与卡片圆角一致 */
+        padding: 15px; /*  添加一些内边距，使内容与边框之间有空间 */
+        background-color: transparent; /*  设置为透明背景，如果不需要背景色 */
+    }
+
+    .description-container {
+        margin-top: 10px; /* Add some space between name and description */
+        margin-bottom: 20px; /* Add space between description and language stats */
+        padding: 0 20px; /* Add horizontal padding for text within container */
+        text-align: center; /* Center-align the text */
+    }
+
+    .description-text {
+        margin: 0;
+        font-size: 1em; /* Adjust font size as needed */
+        line-height: 1.6; /* Improve readability with line height */
+        color: #f0f0f0; /* Choose a suitable text color, e.g., gray */
+    }
+
     :global(table) {
         width: 100%;
         border-collapse: collapse;
         color: black; /* 设置字体颜色为黑色 */
         margin-top: 20px; /*  与上方的 stats-image 隔开一些距离 */
-        border: 1px solid #333; /* 表格外边框改为深灰色 */
+        border: 1px solid #c5c5c5; /* 表格外边框改为深灰色 */
     }
 
     :global(th),
     :global(td) {
-        border: 1px solid #333 !important; /* 单元格边框改为深灰色，并提高优先级 */
+        border: 1px solid #cccaca !important; /* 单元格边框改为深灰色，并提高优先级 */
         padding: 8px;
         text-align: center;
     }
@@ -281,7 +243,7 @@
     :global(thead),
     :global(tbody tr:last-child td) {
         /*  thead 也添加 border-bottom, 确保分隔线显示 */
-        border-bottom: 1px solid #333; /* 表头底部边框改为深灰色 */
+        border-bottom: 1px solid #dfdfdf; /* 表头底部边框改为深灰色 */
     }
 
     :global(th) {
@@ -291,16 +253,15 @@
     :global(td:first-child) {
         text-align: left; /*  第一列文字左对齐 */
     }
-    /* 社交账号 */
-    .social-accounts-container {
-        margin-top: 10px;
-    }
 
     .social-accounts-title {
-        font-size: 1.2em;
-        margin-bottom: 10px;
+        font-size: 1em; /*  尝试减小字体到 1.1em，您可以根据需要调整 */
+        font-weight: normal; /* 尝试设置为 normal，或者 lighter */
+        margin-bottom: 2px;
         display: flex;
         align-items: center;
+        color: #353131; /*  假设您希望使用浅灰色，可以调整为 #fff (白色) 或其他颜色 */
+        font-family: Arial, sans-serif; /*  设置为 Arial 或您网站使用的字体 */
     }
     .social-accounts-title span {
         margin-right: 5px;
@@ -309,20 +270,15 @@
 
     .social-accounts {
         display: flex;
-        gap: 10px;
+        gap: 2px;
     }
 
     .social-link {
         display: inline-block;
-        padding: 8px 15px;
+        padding-right: 2px;
         border-radius: 20px;
-        background-color: rgba(255, 255, 255, 0.1); /*  链接背景色 */
-        color: #fff;
         text-decoration: none;
         font-size: 0.9em;
-    }
-    .social-link.bilibili {
-        background-color: #00a1d6;
     }
 
     /*  iconfont 示例，你需要引入你自己的 iconfont 库 */

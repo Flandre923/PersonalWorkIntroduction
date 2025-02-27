@@ -1,0 +1,59 @@
+---
+import Card from "../components/WorkCard.astro";
+
+const projects = [
+    {
+        imageSrc: "/images/project1.png",
+        title: "项目一",
+        description: "这是项目一的描述。",
+        tags: ["Astro", "前端"],
+        links: [
+            { text: "查看详情", link: "/project1" },
+            {
+                text: "GitHub",
+                icon: "github-icon",
+                link: "https://github.com/project1",
+            },
+        ],
+    },
+    {
+        imageSrc: "/images/fabric_icon.png", // Replace with your image path
+        title: "Fabric API",
+        description:
+            "Lightweight and modular API providing common hooks and intercompatibility measures utilized by mods using the Fabric toolchain.",
+        tags: ["Untity", "Game", "C#"],
+        links: [
+            // Add links data here
+            { text: "Bilibili", icon: "💻", link: "https://www.bilibili.com" }, // Example with icon (using text for now)
+            { text: "Github", icon: "🪡", link: "https://www.github.com" },
+        ],
+    },
+    // ... 更多项目
+];
+---
+
+<div class="projects-grid">
+    {
+        projects.map((project) => (
+            <Card
+                imageSrc={project.imageSrc}
+                title={project.title}
+                description={project.description}
+                tags={project.tags}
+                links={project.links}
+            />
+        ))
+    }
+</div>
+
+<style>
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(300px, 1fr)
+        ); /* 响应式网格布局 */
+        gap: 20px; /* 网格项之间的间距 */
+        padding: 20px; /* 网格容器的内边距 */
+    }
+</style>

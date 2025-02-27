@@ -13,9 +13,11 @@ const { backgroundImage } = Astro.props;
     .header {
         background-color: #000; /* Fallback background color */
         background-size: cover;
-        background-position: center 20%;
+        background-position: center 100%;
         color: #fff;
-        padding: 22rem 0;
+        padding: 24rem 0;
         position: relative; /* For absolute positioning of children if needed */
+        position: relative; /* 确保 z-index 生效 */
+        z-index: 1; /* 设置 z-index 值，使其低于 ProfileCard */
     }
 </style>

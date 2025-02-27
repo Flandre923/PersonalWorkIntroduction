@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import WorkCard from "../components/WorkCard.astro";
 import Header from "../components/Header.astro";
 import ProfileCard from "../components/ProfileCard.astro";
+import ShowWindow from "../components/ShowWindow.astro";
 
 const modData = {
 	imageSrc: "/images/fabric_icon.png", // Replace with your image path
@@ -28,5 +29,5 @@ const headerData = {
 <Layout>
 	<Header {...headerData} />
 	<ProfileCard />
-	<WorkCard {...modData} />
+	<ShowWindow />
 </Layout>
