@@ -116,6 +116,11 @@
                 "text": "Github",
                 "icon": "/images/github_icon.png",
                 "link": "https://github.com/Flandre923/TouHouNightSparrowRestaurantCrardMenuRecommendation"
+            },
+            {
+                "text": "Bilibili",
+                "icon": "/images/bilibili_icon.png",
+                "link": "https://www.bilibili.com/video/BV1jK4y1T7Ns/?vd_source=f5ab73e8b88cb4cb94d904126cdfeb27"
             }
         ]
     }
