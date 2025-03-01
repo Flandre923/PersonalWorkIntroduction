@@ -36,7 +36,7 @@
                 "<img src=\"https://img.shields.io/badge/-Spring%20Boot-green?style=flat-square&logo=Spring%20Boot\"/>",
                 "<img src=\"https://img.shields.io/badge/-MySQL-cornflowerblue?style=flat-square&logo=MySQL\"/>",
                 "<img src=\"https://img.shields.io/badge/OpenGL-16a085.svg?logo=qt\"/>",
-                "<img src=\"https://img.shields.io/badge/pytorch-16a085.svg?logo=qt\"/>"
+                "<img src=\"https://img.shields.io/badge/pytorch-FFA500.svg?logo=pytorch\"/>"
             ],
             "justLearned": [
                 "<img src=\"https://img.shields.io/badge/-Redis-darkred?style=flat-square&logo=Redis\"/>",
@@ -73,6 +73,11 @@
                 "href": "https://github.com/Flandre923",
                 "class": "github",
                 "badge": "<img src=\"https://img.shields.io/badge/Github-Flandre923-lightgray?style=flat-square&logo=Github\"/>"
+            },
+            {
+                "href": "https://fuwari-ald.pages.dev/",
+                "class": "blog",
+                "badge": "<img src=\"https://img.shields.io/badge/Blog-Flandre923-pink?style=flat-square&logo=googlehome\"/>"
             }
         ]
     }

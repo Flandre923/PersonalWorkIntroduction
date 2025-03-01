@@ -1,27 +1,14 @@
 ---
 // import Welcome from '../components/Welcome.astro';
 import Layout from "../layouts/Layout.astro";
-import WorkCard from "../components/WorkCard.astro";
 import Header from "../components/Header.astro";
 import ProfileCard from "../components/ProfileCard.astro";
 import ShowWindow from "../components/ShowWindow.astro";
 
-const modData = {
-	imageSrc: "/images/fabric_icon.png", // Replace with your image path
-	title: "Fabric API",
-	description:
-		"Lightweight and modular API providing common hooks and intercompatibility measures utilized by mods using the Fabric toolchain.",
-	tags: ["Untity", "Game", "C#"],
-	links: [
-		// Add links data here
-		{ text: "Bilibili", icon: "💻", link: "https://www.bilibili.com" }, // Example with icon (using text for now)
-		{ text: "Github", icon: "🪡", link: "https://www.github.com" },
-	],
-};
+import headerData from "../data/header.json"; // 导入 header 数据
+import worksData from "../data/works.json"; // 导入 作品集 数据
+import experimentsData from "../data/experiments.json"; // 导入 试验场 数据
 
-const headerData = {
-	backgroundImage: "/images/header-bg.png", // Replace with your background image
-};
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -29,5 +16,14 @@ const headerData = {
 <Layout>
 	<Header {...headerData} />
 	<ProfileCard />
-	<ShowWindow />
+	<div class="top_work">
+		<ShowWindow showTitle="作品集" projectData={worksData} />
+		<ShowWindow showTitle="试验场" projectData={experimentsData} />
+	</div>
 </Layout>
+
+<style>
+	.top_work {
+		margin-top: 20px;
+	}
+</style>

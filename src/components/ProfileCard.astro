@@ -106,7 +106,8 @@ const socialAccountsData = profileData.socialAccounts; // Extract social account
     .profile-container {
         display: flex;
         gap: 20px;
-        max-width: 1400px; /* 调整最大宽度 */
+        width: 85%; /* 修改为百分比宽度，占据屏幕大部分宽度 */
+        max-width: 1400px; /*  保留最大宽度限制，在大屏幕上不会过宽 */
         margin: 20px auto; /*  居中显示，并添加外边距 */
         padding: 20px; /* 容器内边距 */
         position: absolute; /* 改为 absolute 定位 */
@@ -119,7 +120,7 @@ const socialAccountsData = profileData.socialAccounts; // Extract social account
     .card {
         border-radius: 15px;
         background-color: rgba(255, 255, 255, 0.2); /* 半透明白色 */
-        backdrop-filter: blur(10px); /* 磨砂玻璃效果 */
+        backdrop-filter: blur(4px); /* 磨砂玻璃效果 */
         border: 1px solid rgba(255, 255, 255, 0.2); /*  可选：添加更明显的边框 */
         padding: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*  可选：轻微阴影 */
@@ -296,11 +297,32 @@ const socialAccountsData = profileData.socialAccounts; // Extract social account
     /*  响应式设计 (可选) */
     @media (max-width: 768px) {
         .profile-container {
-            flex-direction: column; /*  小屏幕垂直排列 */
+            flex-direction: column; /*  改为垂直排列 */
+            width: 95%; /* 手机屏幕上宽度也占据 95% */
+            position: relative; /*  改为相对定位，或者根据需要调整 */
+            top: auto; /*  取消 top 定位 */
+            left: auto; /* 取消 left 定位 */
+            transform: none; /*  取消 transform */
+            margin-top: 20px; /*  调整顶部外边距 */
+        }
+        .name {
+            font-size: 1.6em; /* 手机上姓名文字稍微小一点 */
+        }
+        .description-text,
+        .social-accounts-title,
+        :global(td),
+        :global(th) {
+            font-size: 0.9em; /*  手机上表格和描述文字可以适当减小 */
         }
         .left-card,
         .right-card {
             width: 100%; /*  小屏幕卡片宽度100% */
+        }
+        .language-chart {
+            height: auto; /*  允许语言图表高度自适应，避免固定高度在小屏幕上溢出 */
+        }
+        .right-card .stats-and-social {
+            flex-direction: column; /*  统计和社交账号垂直排列 */
         }
         .skill-table {
             flex-direction: column; /*  小屏幕技能表格垂直排列 */

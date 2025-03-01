@@ -1,0 +1,175 @@
+[
+    {
+        "imageSrc": "/images/godot_icon.png",
+        "title": "Godot Shader Study - 消融效果",
+        "description": "Godot游戏引擎学习-物体消融效果",
+        "tags": [
+            "Godot"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/AblationShader"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/godot_icon.png",
+        "title": "Godot Study - 扫雷小游戏",
+        "description": "Godot游戏引擎学习-扫雷小游戏，尝试使用AI辅助开发游戏",
+        "tags": [
+            "Godot"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/Saolei"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/godot_icon.png",
+        "title": "Godot Study - GodotFiniteStateMachine",
+        "description": "Godot游戏引擎学习-做的一个简单的状态机，可以用于敌人AI的切换",
+        "tags": [
+            "Godot"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/GodotFiniteStateMachine"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/godot_icon.png",
+        "title": "Godot Study - Calculator",
+        "description": "Godot游戏引擎学习-使用Godot做的一个计算器，发现游戏引擎做桌面程序也是不错的",
+        "tags": [
+            "Godot"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/Calculator"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/neoforge_icon.png",
+        "title": "Mineraft Tutorial - NeoForgeTutorialmod-Minecraft1.21",
+        "description": " 我的世界教程-我的世界1.21-Neoforge的模组开发教程",
+        "tags": [
+            "Minecraft",
+            "Neoforge",
+            "Java"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/Calculator"
+            },
+            {
+                "text": "Bilibili",
+                "icon": "/images/bilibili_icon.png",
+                "link": "https://space.bilibili.com/4550069/lists/4360201?type=season"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/godot_icon.png",
+        "title": "Godot Study - godot_fritst_game_code",
+        "description": "Godot游戏引擎学习-godot1小时教程。2D平台跳跃游戏",
+        "tags": [
+            "Godot"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/godot_fritst_game_code"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/godot_icon.png",
+        "title": "Godot Study - Godot Dither Dissolve",
+        "description": "Godot游戏引擎学习-像素效果Shader",
+        "tags": [
+            "Godot"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/GodotDitherDissolve"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/spell_icon.png",
+        "title": "Mineraft Tutorial - 我的世界铁魔法模组魔法实现教程",
+        "description": " 我的世界教程-我的世界1.20.6-我的世界铁魔法模组魔法实现教程",
+        "tags": [
+            "Minecraft",
+            "Neoforge",
+            "Java"
+        ],
+        "links": [
+            {
+                "text": "Bilibili",
+                "icon": "/images/bilibili_icon.png",
+                "link": "https://space.bilibili.com/4550069/lists/3368576?type=season"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/neoforge_icon.png",
+        "title": "Mineraft Tutorial - NeoForgeTutorialmod-Minecraft1.20.4",
+        "description": " 我的世界教程-我的世界1.20.4-Neoforge的模组开发教程",
+        "tags": [
+            "Minecraft",
+            "Neoforge",
+            "Java"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/NeoForgeTutorialmod-Minecraft1.20.4"
+            },
+            {
+                "text": "Bilibili",
+                "icon": "/images/bilibili_icon.png",
+                "link": "https://space.bilibili.com/4550069/lists/2219858?type=season"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/fabric_icon.png",
+        "title": "Mineraft Tutorial - Minecraft-Fabric-tutorialmod-1.20.1",
+        "description": " 我的世界教程-我的世界1.20.1-Fabric的模组开发教程",
+        "tags": [
+            "Minecraft",
+            "Fabric",
+            "Java"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/Minecraft-Fabric-tutorialmod-1.20.1"
+            },
+            {
+                "text": "Bilibili",
+                "icon": "/images/bilibili_icon.png",
+                "link": "https://space.bilibili.com/4550069/lists/1596444?type=season"
+            }
+        ]
+    }
+]

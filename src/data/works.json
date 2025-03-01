@@ -1,0 +1,122 @@
+[
+    {
+        "imageSrc": "/images/berry_icon.png",
+        "title": "Cobblemon Berry Pouch",
+        "description": "我的世界宝可梦模组增加的树果的袋子，用于解决树果过多占据背包的问题。",
+        "tags": [
+            "Java",
+            "Neoforge",
+            "Fabric",
+            "Minecraft"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/CobblemonBerryPouch"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/rct_level_cap_icon.png",
+        "title": "Capture Cap RCT Version",
+        "description": "我的世界模组，联动了宝可梦和RCT模组，使得捕捉宠物的等级上限不能超过RCT模组的等级.",
+        "tags": [
+            "Fabric",
+            "Neoforge",
+            "Minecraft",
+            "Java"
+        ],
+    "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/Capture_Cap_RCT_Version"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/just_pump_icon.png",
+        "title": "Just Pump",
+        "description": "我的世界模组，为解决高版本我的世界没有一个好用的流体移除和填充的泵而开发",
+        "tags": [
+            "Neoforge",
+            "Minecraft",
+            "Java"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/JustPump"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/fabric_icon.png",
+        "title": "Kook Chat Fabric Dev",
+        "description": "我的世界模组，用于在我的世界和KOOK频道之间同步聊天信息",
+        "tags": [
+            "Fabric",
+            "Minecraft",
+            "Java"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/kook-chat-fabric-dev"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/my_game_icon.png",
+        "title": " 东方同人小游戏",
+        "description": "毕业设计使用Cocos2D做的东方同人射击游戏，仅实现了自己一些基本的构想",
+        "tags": [
+            "Cocos",
+            "Game",
+            "TS"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/MyGame"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/Mystia_icon.png",
+        "title": "东方夜雀食堂开卡查询工具",
+        "description": "用前端工具写的一个简单的东方夜雀食堂不同角色喜好查询工具。数据整理使用了wiki+GPT提取结构",
+        "tags": [
+            "Vue",
+            "JavaScript"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/TouHouNightSparrowRestaurantCrardMenuRecommendation"
+            }
+        ]
+    },
+    {
+        "imageSrc": "/images/blog_icon.png",
+        "title": "自己学习开发的博客",
+        "description": "使用SpringBoot和Vue开发的个人博客。",
+        "tags": [
+            "Vue",
+            "Spring Boot",
+            "MySQL"
+        ],
+        "links": [
+            {
+                "text": "Github",
+                "icon": "/images/github_icon.png",
+                "link": "https://github.com/Flandre923/TouHouNightSparrowRestaurantCrardMenuRecommendation"
+            }
+        ]
+    }
+]

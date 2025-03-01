@@ -41,10 +41,19 @@ const { imageSrc, title, description, tags, links } = Astro.props;
             {
                 links.map((link) => (
                     <a href={link.link} class="link-button">
-                        {link.icon && (
-                            <span class="link-icon">{link.icon}</span>
-                        )}{" "}
-                        {/* Icon span */}
+                        {link.icon &&
+                            // 移除多余的花括号，直接使用条件渲染的表达式
+                            (link.icon.startsWith("/") ||
+                            link.icon.includes(".") ? (
+                                <img
+                                    src={link.icon}
+                                    alt={`${link.text} icon`}
+                                    class="link-icon-image"
+                                />
+                            ) : (
+                                <span class="link-icon">{link.icon}</span>
+                            ))}{" "}
+                        {/* Icon span 或 img */}
                         {link.text}
                     </a>
                 ))
@@ -69,9 +78,9 @@ const { imageSrc, title, description, tags, links } = Astro.props;
 
     .image-container {
         margin-right: 16px;
-        width: 80px; /* Adjust as needed */
-        height: 80px; /* Adjust as needed */
         border-radius: 24px;
+        width: 30%;
+        min-width: 30%;
         overflow: hidden; /* To ensure image respects border-radius */
     }
 
@@ -154,6 +163,13 @@ const { imageSrc, title, description, tags, links } = Astro.props;
 
     .link-button:hover {
         background-color: #e0e0e0; /* Slightly darker grey on hover */
+    }
+
+    .link-icon-image {
+        width: 1em; /* 调整图片图标的大小 */
+        height: 1em;
+        vertical-align: middle; /* 使图标与文字垂直居中对齐 */
+        margin-right: 4px; /* 图标和文字之间的间距 */
     }
 
     .link-icon {
